@@ -1,15 +1,18 @@
+
 {
   "name": "galvanize-classified-ad",
   "version": "1.0.0",
-  "main": "server.js",
+  "main": "server/server.js",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon server/server.js",
-    "test": "mocha"
+    "start": "node server/server.js",
+    "knex": "knex",
+    "heroku-postbuild": "knex migrate:rollback --knexfile server/knexfile.js; knex migrate:latest --knexfile server/knexfile.js; knex seed:run --knexfile server/knexfile.js;",
+    "nodemon": "node server/server.js"
   },
-  "keywords": [],
-  "author": "",
-  "description": "",
+  "engines": {
+    "node": "v7.10.0"
+  },
   "dependencies": {
     "angular": "^1.6.0",
     "angular-moment": "^1.0.1",
@@ -17,10 +20,10 @@
     "body-parser": "^1.17.1",
     "cookie-parser": "^1.4.3",
     "express": "^4.15.2",
-    "knex": "^0.12.9",
+    "knex": "^0.12.6",
     "moment": "^2.18.1",
     "morgan": "^1.8.1",
-    "pg": "^6.2.2"
+    "pg": "^6.1.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",
