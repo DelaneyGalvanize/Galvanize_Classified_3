@@ -4,7 +4,7 @@
   angular.module('app')
     .component('editPost', {
       controller: EditPostController,
-      templateUrl: 'posts/edit-post.template.html'
+      templateUrl: 'posts/editPost.template.html'
     })
 
   EditPostController.$inject = ['$state', 'ClassifiedService']
