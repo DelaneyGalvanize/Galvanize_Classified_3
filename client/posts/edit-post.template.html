@@ -1,0 +1,37 @@
+<!-- EDIT POST FORM -->
+<div class="container">
+  <h3>Posting: {{ $ctrl.postTitle }}</h3>
+  <form name="$ctrl.editPostForm" ng-submit="$ctrl.updatePost($ctrl.editPost)" novalidate>
+    <!-- EDIT POST TITLE -->
+    <div class="form-group" ng-class="{'has-error': $ctrl.editPostForm.title.$invalid && $ctrl.editPostForm.title.$touched}">
+      <label for="title">Title</label>
+      <input type="text" class="form-control" id="title" name="title"
+        ng-model="$ctrl.editPost.title"
+        required>
+    </div>
+    <!-- EDIT POST DESCRIPTION -->
+    <div class="form-group" ng-class="{'has-error': $ctrl.editPostForm.description.$invalid && $ctrl.editPostForm.description.$touched}">
+      <label for="description">Description</label>
+      <textarea class="form-control" id="description" rows="8" name="description"
+        ng-model="$ctrl.editPost.description"
+        required></textarea>
+    </div>
+    <!-- EDIT POST PRICE -->
+    <div class="form-group" ng-class="{'has-error': $ctrl.editPostForm.price.$invalid && $ctrl.editPostForm.price.$touched}">
+      <label for="price">Price</label>
+      <input type="text" class="form-control" id="price" name="price"
+        ng-model="$ctrl.editPost.price"
+        required>
+    </div>
+    <!-- EDIT POST ITEM IMAGE -->
+    <div class="form-group" ng-class="{'has-error': $ctrl.editPostForm.item_image.$invalid && $ctrl.editPostForm.item_image.$touched}">
+      <label for="item_image">Item Image (URL)</label>
+      <input type="text" class="form-control" id="item_image" name="item_image"
+        ng-model="$ctrl.editPost.item_image"
+        required>
+    </div>
+    <!-- EDIT POST SUBMIT -->
+    <input class="btn btn-primary" type="submit" value="Update Post"
+      ng-disabled="$ctrl.editPostForm.$invalid">
+  </form>
+</div>
